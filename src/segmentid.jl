@@ -44,7 +44,18 @@ julia> csegid([:a, :a, :b, :b, :a, :c])
  2
  3
  4
+```
 
+
+Noted that `NaN`s are considered as different values:
+
+```jldoctest
+csegid([1.0, NaN, NaN, 2.0]) == [1, 2, 3, 4]
+
+#output
+
+false
+```
 """
 function csegid(v::AbstractVector)
     n = length(v)

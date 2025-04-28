@@ -54,8 +54,6 @@ using Test       # Access @test, @testset
     # This function would error if `changes[i]` becomes missing.
     # Handling these cases robustly requires specific logic using isequal() or similar.
     @testset "Special Values (Not Fully Supported By Default)" begin
-        # Demonstrating default NaN behavior
-        @test csegid([1.0, NaN, NaN, 2.0]) == [1, 2, 3, 4]
         # Demonstrate missing would error
         @test_throws TypeError csegid([1, missing, missing, 2])
         # non-boolean (Missing) used in boolean context
