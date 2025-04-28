@@ -1,13 +1,15 @@
-using ValueSegments # Access the function csegid
 using Test       # Access @test, @testset
 
 @testset "ValueSegments.jl - csegid" begin
 
     @testset "Basic Functionality" begin
         # Original example (numeric)
-        @test csegid([1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]) == [1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4]
+        @test csegid(
+            [1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]) ==
+              [1, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4]
         # Boolean example
-        @test csegid([true, true, false, false, true, false]) == [1, 1, 2, 2, 3, 4]
+        @test csegid([true, true, false, false, true, false]) ==
+              [1, 1, 2, 2, 3, 4]
         # String example
         @test csegid(["a", "a", "b", "c", "c", "c"]) == [1, 1, 2, 3, 3, 3]
         # Symbol example
@@ -46,17 +48,6 @@ using Test       # Access @test, @testset
         @test csegid([1, 2, 2, 3, 3, 3]) == [1, 2, 2, 3, 3, 3]
     end
 
-    #= Optional: Add tests for specific types if needed
-    @testset "Type Specifics" begin
-        # Test potential floating point nuances (should be fine with !=)
-        @test csegid([0.1 + 0.2, 0.3, 0.3, 0.5]) == [1, 1, 1, 2] # Note 0.1+0.2 != 0.3 exactly
-        @test csegid([0.3, 0.3, 0.1 + 0.2, 0.5]) == [1, 1, 2, 3] # Comparing 0.3 to the inexact sum
-
-        # Test with different integer types
-        @test csegid(Int8[1, 1, 0, 0]) == [1, 1, 2, 2]
-    end
-    =#
-
     # Note: Standard NaN handling: NaN != NaN is true.
     # csegid([1.0, NaN, NaN, 2.0]) would return [1, 2, 3, 4]
     # Note: Standard Missing handling: missing != missing is missing.
@@ -66,7 +57,8 @@ using Test       # Access @test, @testset
         # Demonstrating default NaN behavior
         @test csegid([1.0, NaN, NaN, 2.0]) == [1, 2, 3, 4]
         # Demonstrate missing would error
-        @test_throws MethodError csegid([1, missing, missing, 2])
+        @test_throws TypeError csegid([1, missing, missing, 2])
+        # non-boolean (Missing) used in boolean context
         # Consider adding isequal logic if NaN/missing segments are needed
     end
 
