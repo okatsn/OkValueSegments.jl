@@ -17,7 +17,7 @@ This function handles any element type that supports the `!=` comparison.
 
 # Examples
 ```jldoctest
-julia> using ValueSegments
+julia> using OkValueSegments
 
 julia> csegid([1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
 14-element Vector{Int64}:
@@ -50,11 +50,8 @@ julia> csegid([:a, :a, :b, :b, :a, :c])
 Noted that `NaN`s are considered as different values:
 
 ```jldoctest
-csegid([1.0, NaN, NaN, 2.0]) == [1, 2, 3, 4]
-
-#output
-
-false
+julia> csegid([1.0, NaN, NaN, 2.0]) == [1, 2, 3, 4]
+true
 ```
 """
 function csegid(v::AbstractVector)
