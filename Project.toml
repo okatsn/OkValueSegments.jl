@@ -1,10 +1,10 @@
 name = "OkValueSegments"
 uuid = "bf75f91d-8d33-4f2c-bf9d-6eaba12b5f3c"
 authors = ["okatsn <okatsn@gmail.com> and contributors"]
-version = "0.0.0"
+version = "0.1.0"
 
 [compat]
-julia = "1.9"
+julia = "1.9, 1.10, 1.11"
 
 [extras]
 CompatHelperLocal = "5224ae11-6099-4aaa-941d-3aab004bd678"
