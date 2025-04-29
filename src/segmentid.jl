@@ -56,6 +56,26 @@ true
 """
 function csegid(v::AbstractVector)
     n = length(v)
+    n == 0 && return Int[]
+
+    # Preallocate result vector directly
+    result = Vector{Int}(undef, n)
+    result[1] = 1  # First segment is always 1
+
+    # Fill in segment IDs in a single pass
+    current_id = 1
+    for i in 2:n
+        if v[i] != v[i-1]
+            current_id += 1
+        end
+        result[i] = current_id
+    end
+
+    return result
+end
+
+function _csegid_old(v::AbstractVector)
+    n = length(v)
     if n == 0
         return Int[]
     end
