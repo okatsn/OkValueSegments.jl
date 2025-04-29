@@ -1,7 +1,7 @@
 name = "OkValueSegments"
 uuid = "bf75f91d-8d33-4f2c-bf9d-6eaba12b5f3c"
 authors = ["okatsn <okatsn@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [compat]
 julia = "1.9, 1.10, 1.11"
