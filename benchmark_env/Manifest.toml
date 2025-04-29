@@ -58,9 +58,7 @@ uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 version = "1.11.0"
 
 [[deps.OkValueSegments]]
-git-tree-sha1 = "7cbd5242a0c0f2bc4d332e64cf3da599cc28a11a"
-repo-rev = "improve-efficiency"
-repo-url = ".."
+path = "/home/jovyan/.julia/dev/OkValueSegments"
 uuid = "bf75f91d-8d33-4f2c-bf9d-6eaba12b5f3c"
 version = "0.1.0"
 
