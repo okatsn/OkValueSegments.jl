@@ -74,6 +74,28 @@ function csegid(v::AbstractVector)
     return result
 end
 
+function csegid(v::Vector{Bool})
+    n = length(v)
+    n == 0 && return Int[]
+
+    result = Vector{Int}(undef, n)
+    result[1] = 1  # First segment is always 1
+
+    current_id = 1
+    current_state = v[1]
+
+    @inbounds for i in 2:n
+        if v[i] != current_state
+            current_id += 1
+            current_state = v[i]
+        end
+        result[i] = current_id
+    end
+
+    return result
+end
+
+
 function _csegid_old(v::AbstractVector)
     n = length(v)
     if n == 0
