@@ -1,0 +1,15 @@
+Original implementation:
+  1.302 μs (9 allocations: 23.62 KiB)
+  1.236 μs (9 allocations: 23.62 KiB)
+  1.254 μs (9 allocations: 23.62 KiB)
+  47.291 ns (6 allocations: 384 bytes)
+
+Optimized implementation:
+  482.297 ns (3 allocations: 7.88 KiB)
+  473.518 ns (3 allocations: 7.88 KiB)
+  552.636 ns (3 allocations: 7.88 KiB)
+  16.382 ns (2 allocations: 128 bytes)
+Results match: true
+Results match: true
+Results match: true
+Results match: true
