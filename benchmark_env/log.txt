@@ -1,0 +1,24 @@
+Original implementation:
+  936.200 ns (9 allocations: 23.62 KiB)
+  967.800 ns (9 allocations: 23.62 KiB)
+  1.122 μs (9 allocations: 23.62 KiB)
+  47.004 ns (6 allocations: 384 bytes)
+
+Optimized implementation:
+  421.879 ns (3 allocations: 7.88 KiB)
+  423.747 ns (3 allocations: 7.88 KiB)
+  510.257 ns (3 allocations: 7.88 KiB)
+  14.938 ns (2 allocations: 128 bytes)
+Results match: true
+Results match: true
+Results match: true
+Results match: true
+Benchmarking with large Boolean vector (length = 1000000):
+
+Original implementation (_csegid_old):
+  1.226 ms (9 allocations: 22.89 MiB)
+
+Current implementation (csegid):
+  230.675 μs (3 allocations: 7.63 MiB)
+Results match: true
+Number of segments: 500307
